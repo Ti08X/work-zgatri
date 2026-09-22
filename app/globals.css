@@ -1,0 +1,208 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+@utility scrollbar-thin { scrollbar-width: thin; }
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@utility scrollbar-gutter-stable { scrollbar-gutter: stable; }
+
+:root {
+  --background: #07101f;
+  --foreground: #dbe8f5;
+  --card: #0a1627;
+  --card-foreground: #dbe8f5;
+  --popover: #0d1a2d;
+  --popover-foreground: #dbe8f5;
+  --primary: #a5f3fc;
+  --primary-foreground: #07101f;
+  --secondary: #111f33;
+  --secondary-foreground: #dbe8f5;
+  --muted: #111f33;
+  --muted-foreground: #718096;
+  --accent: #13243a;
+  --accent-foreground: #ecfeff;
+  --destructive: #fb7185;
+  --border: #ffffff14;
+  --input: #ffffff1f;
+  --ring: #67e8f9;
+  --chart-1: #67e8f9;
+  --chart-2: #34d399;
+  --chart-3: #60a5fa;
+  --chart-4: #fbbf24;
+  --chart-5: #fb7185;
+  --radius: 0.5rem;
+  --sidebar: #050c18;
+  --sidebar-foreground: #8ea0b8;
+  --sidebar-primary: #a5f3fc;
+  --sidebar-primary-foreground: #07101f;
+  --sidebar-accent: #0d1b2f;
+  --sidebar-accent-foreground: #cffafe;
+  --sidebar-border: #ffffff12;
+  --sidebar-ring: #67e8f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* { scrollbar-color: #21334c transparent; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.dashboard-card {
+  border-color: rgba(255, 255, 255, 0.075);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.028), transparent 55%),
+    #0a1627;
+  box-shadow: none;
+}
+
+.workbench-theme {
+  background: var(--background);
+  color: var(--foreground);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.workbench-theme.light,
+html[data-workbench-theme="light"] {
+  --background: #f4f7fb;
+  --foreground: #162235;
+  --card: #ffffff;
+  --card-foreground: #162235;
+  --popover: #ffffff;
+  --popover-foreground: #162235;
+  --secondary: #eef3f8;
+  --secondary-foreground: #243349;
+  --muted: #edf2f7;
+  --muted-foreground: #6b7c93;
+  --accent: #e7f7fa;
+  --accent-foreground: #17384a;
+  --border: #dce5ef;
+  --input: #d6e0ea;
+  --sidebar: #edf3f8;
+  --sidebar-foreground: #52657d;
+  --sidebar-accent: #dff4f7;
+  --sidebar-accent-foreground: #155267;
+  --sidebar-border: #d8e2ec;
+}
+
+.workbench-theme.light header,
+.workbench-theme.light main {
+  background-color: #f4f7fb !important;
+}
+
+.workbench-theme.light header {
+  border-color: #dce5ef !important;
+}
+
+.workbench-theme.light .dashboard-card {
+  border-color: #dce5ef;
+  background:
+    linear-gradient(135deg, rgba(8, 145, 178, 0.025), transparent 55%),
+    #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.workbench-theme.light .text-white,
+.workbench-theme.light .text-slate-100,
+.workbench-theme.light .text-slate-200,
+html[data-workbench-theme="light"] .text-white,
+html[data-workbench-theme="light"] .text-slate-100,
+html[data-workbench-theme="light"] .text-slate-200 {
+  color: #172337 !important;
+}
+
+.workbench-theme.light .text-slate-300,
+.workbench-theme.light .text-slate-400,
+html[data-workbench-theme="light"] .text-slate-300,
+html[data-workbench-theme="light"] .text-slate-400 {
+  color: #42546b !important;
+}
+
+.workbench-theme.light .text-slate-500,
+html[data-workbench-theme="light"] .text-slate-500 {
+  color: #66788f !important;
+}
+
+.workbench-theme.light .text-slate-600,
+html[data-workbench-theme="light"] .text-slate-600 {
+  color: #8290a2 !important;
+}
+
+.workbench-theme.light [class*="border-white/"],
+html[data-workbench-theme="light"] [class*="border-white/"] {
+  border-color: #dce5ef !important;
+}
+
+.workbench-theme.light [class*="bg-white/\["],
+html[data-workbench-theme="light"] [class*="bg-white/\["] {
+  background-color: rgba(15, 23, 42, 0.025) !important;
+}
+
+.workbench-theme.light .theme-toggle,
+.workbench-theme.light button[class*="bg-transparent"],
+html[data-workbench-theme="light"] .theme-toggle,
+html[data-workbench-theme="light"] button[class*="bg-transparent"] {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+}
+
+html[data-workbench-theme="light"] [role="dialog"] {
+  border-color: #dce5ef !important;
+  background-color: #ffffff !important;
+  color: #162235 !important;
+}
+
+html[data-workbench-theme="light"] [role="dialog"] .text-slate-100,
+html[data-workbench-theme="light"] [role="dialog"] .text-slate-200,
+html[data-workbench-theme="light"] [role="dialog"] .text-slate-300 {
+  color: #243349 !important;
+}
+
+html[data-workbench-theme="light"] [role="dialog"] .text-slate-400,
+html[data-workbench-theme="light"] [role="dialog"] .text-slate-500,
+html[data-workbench-theme="light"] [role="dialog"] .text-slate-600 {
+  color: #6b7c93 !important;
+}
